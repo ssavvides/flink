@@ -207,7 +207,7 @@ data.filter(new FilterFunction<Integer>() {
         <p>Combines a group of elements into a single element by repeatedly combining two elements
         into one. Reduce may be applied on a full data set or on a grouped data set.</p>
 {% highlight java %}
-data.reduce(new ReduceFunction<Integer> {
+data.reduce(new ReduceFunction<Integer>() {
   public Integer reduce(Integer a, Integer b) { return a + b; }
 });
 {% endhighlight %}
@@ -225,7 +225,7 @@ data.reduce(new ReduceFunction<Integer> {
         <p>Combines a group of elements into one or more elements. ReduceGroup may be applied on a
         full data set or on a grouped data set.</p>
 {% highlight java %}
-data.reduceGroup(new GroupReduceFunction<Integer, Integer> {
+data.reduceGroup(new GroupReduceFunction<Integer, Integer>() {
   public void reduce(Iterable<Integer> values, Collector<Integer> out) {
     int prefixSum = 0;
     for (Integer i : values) {
